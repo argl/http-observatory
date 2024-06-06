@@ -9,36 +9,36 @@ Although both the letter grade ranges and modifiers are essentially arbitrary, t
 
 ## Grading Chart
 
-Scoring Range | Grade
-:---: | :---:
-100+ | &nbsp;A+
-90-99 | &nbsp;A&nbsp;
-85-89 | &nbsp;A-
-80-84 | &nbsp;B+
-70-79 | &nbsp;B&nbsp;
-65-69 | &nbsp;B-
-60-64 | &nbsp;C+
-50-59 | &nbsp;C&nbsp;
-45-49 | &nbsp;C-
-40-44 | &nbsp;D+
-30-39 | &nbsp;D&nbsp;
-25-29 | &nbsp;D-
-0-24 | &nbsp;F&nbsp;
+| Scoring Range |     Grade     |
+| :-----------: | :-----------: |
+|     100+      |   &nbsp;A+    |
+|     90-99     | &nbsp;A&nbsp; |
+|     85-89     |   &nbsp;A-    |
+|     80-84     |   &nbsp;B+    |
+|     70-79     | &nbsp;B&nbsp; |
+|     65-69     |   &nbsp;B-    |
+|     60-64     |   &nbsp;C+    |
+|     50-59     | &nbsp;C&nbsp; |
+|     45-49     |   &nbsp;C-    |
+|     40-44     |   &nbsp;D+    |
+|     30-39     | &nbsp;D&nbsp; |
+|     25-29     |   &nbsp;D-    |
+|     0-24      | &nbsp;F&nbsp; |
 
-## Score Modifiers
+## Tests and Score Modifiers
 
-[Cookies](https://infosec.mozilla.org/guidelines/web_security#cookies) | Description | Modifier
---- | --- | :---:
-cookies-secure-with-httponly-sessions-and-samesite | All cookies use the Secure flag, session cookies use the HttpOnly flag, and cross-origin restrictions are in place via the SameSite flag | 5
-cookies-not-found | No cookies detected | 0
-cookies-secure-with-httponly-sessions | All cookies use the `Secure` flag and all session cookies use the `HttpOnly` flag | 0
-cookies-without-secure-flag-<br>but-protected-by-hsts | Cookies set without using the `Secure` flag, but transmission over HTTP prevented by HSTS | -5
-cookies-session-without-secure-flag-<br>but-protected-by-hsts | Session cookie set without the `Secure` flag, but transmission over HTTP prevented by HSTS | -10
-cookies-without-secure-flag | Cookies set without using the `Secure` flag or set over http | -20
-cookies-samesite-flag-invalid | Cookies use SameSite flag, but set to something other than Strict or Lax | -20
-cookies-anticsrf-without-samesite-flag | Anti-CSRF tokens set without using the SameSite flag | -20
-cookies-session-without-httponly-flag | Session cookie set without using the `HttpOnly` flag | -30
-cookies-session-without-secure-flag | Session cookie set without using the `Secure` flag or set over http | -40
+| [Cookies](https://infosec.mozilla.org/guidelines/web_security#cookies) | Description                                                                                                                              | Modifier |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | :------: |
+| cookies-secure-with-httponly-sessions-and-samesite                     | All cookies use the Secure flag, session cookies use the HttpOnly flag, and cross-origin restrictions are in place via the SameSite flag |    5     |
+| cookies-not-found                                                      | No cookies detected                                                                                                                      |    0     |
+| cookies-secure-with-httponly-sessions                                  | All cookies use the `Secure` flag and all session cookies use the `HttpOnly` flag                                                        |    0     |
+| cookies-without-secure-flag-<br>but-protected-by-hsts                  | Cookies set without using the `Secure` flag, but transmission over HTTP prevented by HSTS                                                |    -5    |
+| cookies-session-without-secure-flag-<br>but-protected-by-hsts          | Session cookie set without the `Secure` flag, but transmission over HTTP prevented by HSTS                                               |   -10    |
+| cookies-without-secure-flag                                            | Cookies set without using the `Secure` flag or set over http                                                                             |   -20    |
+| cookies-samesite-flag-invalid                                          | Cookies use SameSite flag, but set to something other than Strict or Lax                                                                 |   -20    |
+| cookies-anticsrf-without-samesite-flag                                 | Anti-CSRF tokens set without using the SameSite flag                                                                                     |   -20    |
+| cookies-session-without-httponly-flag                                  | Session cookie set without using the `HttpOnly` flag                                                                                     |   -30    |
+| cookies-session-without-secure-flag                                    | Session cookie set without using the `Secure` flag or set over http                                                                      |   -40    |
 <br>
 
 [Cross-origin Resource Sharing (CORS)](https://infosec.mozilla.org/guidelines/web_security#cross-origin-resource-sharing) | Description | Modifier
@@ -86,13 +86,12 @@ redirection-not-to-https | Redirects, but final destination is not an https URL 
 redirection-invalid-cert | Invalid certificate chain encountered during redirection | -20
 <br>
 
-[Referrer Policy](https://infosec.mozilla.org/guidelines/web_security#referrer-policy) | Description | Modifier
---- | --- | :---:
-referrer-policy-private | `Referrer-Policy` header set to `no-referrer` or `same-origin`, `strict-origin` or `strict-origin-when-cross-origin` | 5
-referrer-policy-no-referrer-when-downgrade | `Referrer-Policy` header set to `no-referrer-when-downgrade` | 0
-referrer-policy-not-implemented | `Referrer-Policy` header not implemented | 0
-referrer-policy-unsafe | Referrer-Policy header unsafely set to `origin`, `origin-when-cross-origin`, or `unsafe-url` | -5
-referrer-policy-header-invalid | `Referrer-Policy` header cannot be recognized | -5
+| [Referrer Policy](https://infosec.mozilla.org/guidelines/web_security#referrer-policy) | Description                                                                                                          | Modifier |     |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | :------: | --- |
+| referrer-policy-private                                                                | `Referrer-Policy` header set to `no-referrer` or `same-origin`, `strict-origin` or `strict-origin-when-cross-origin` |    5     |     |
+| referrer-policy-not-implemented                                                        | `Referrer-Policy` header not implemented                                                                             |    0     |     |
+| referrer-policy-unsafe                                                                 | Referrer-Policy header unsafely set to `origin`, `origin-when-cross-origin`, or `unsafe-url`                         |    -5    |     |
+| referrer-policy-header-invalid                                                         | `Referrer-Policy` header cannot be recognized                                                                        |    -5    |     |
 <br>
 
 [Subresource Integrity](https://infosec.mozilla.org/guidelines/web_security#subresource-integrity) | Description | Modifier
@@ -125,10 +124,11 @@ x-frame-options-not-implemented | `X-Frame-Options` (XFO) header not implemented
 x-frame-options-header-invalid | `X-Frame-Options` (XFO) header cannot be recognized | -20
 <br>
 
-[X-XSS-Protection](https://infosec.mozilla.org/guidelines/web_security#x-xss-protection) | Description | Modifier
---- | --- | :---:
-x-xss-protection-enabled-mode-block | `X-XSS-Protection` header set to `1; mode=block` | 0
-x-xss-protection-enabled | `X-XSS-Protection` header set to `1` | 0
-x-xss-protection-disabled | `X-XSS-Protection` header set to `0` (disabled) | 0
-x-xss-protection-not-implemented | `X-XSS-Protection` header not implemented | 0
-x-xss-protection-header-invalid | `X-XSS-Protection` header cannot be recognized | -5
+| [Cross-Origin-Resource-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cross-Origin_Resource_Policy) | Description                                                                                              | Modifier |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | :------: |
+| corp-not-implemented                                                                                           | Cross Origin Resource Policy (CORP) not implemented (defaults to `cross-origin`)                         |    5     |
+| corp-implemented-with-same-origin                                                                              | Cross Origin Resource Policy (CORP) implemented, prevents leaks into `cross-origin` contexts             |    0     |
+| corp-implemented-with-same-site                                                                                | Cross Origin Resource Policy (CORP) implemented, prevents leaks into `cross-site` contexts               |    0     |
+| corp-implemented-with-cross-origin                                                                             | Cross Origin Resource Policy (CORP) implemented, but allows `cross-origin` resources sharing by default. |   -20    |
+| corp-header-invalid                                                                                            | Cross Origin Resource Policy (CORP) can not be recognized                                                |   -20    |
+<br>
